@@ -1,122 +1,88 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body, html {
-  height: 100%;
-  font-family: 'Calibri', sans-serif;
-  background-color: #FDF6F6; /* Off-White */
-  height: 100vh;
-  width: 100vw;
+  font-family: 'Inter', sans-serif; /* A popular modern font */
+  background-color: #F5F5F5; /* Lighter background for better readability */
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh; /* Ensure content fills the viewport */
 }
 
 header {
-  background-color: #002C54; /* Dark Blue */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; /* Ensure it's above other elements */
+  background-color: #0056b6;
   color: white;
   padding: 20px;
   text-align: center;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 28px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+footer {
+  background-color: #002C54;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
 
 .conversation-area {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  background-color: #FDF6F6; /* Off-White */
-  border: 1px solid #002C54; /* Dark Blue */
-  margin: 10px;
-  border-radius: 8px;
-  scrollbar-color: #B7B9A8 #FDF6F6; /* Red scrollbar */
-}
-
-/* Stylish custom scrollbar */
-.conversation-area::-webkit-scrollbar {
-  width: 12px;
-}
-
-.conversation-area::-webkit-scrollbar-track {
-  background: #FDF6F6; /* Off-White background */
-}
-
-.conversation-area::-webkit-scrollbar-thumb {
-  background-color: #C5001A; /* Red thumb */
+  border: 1px solid #ddd;
   border-radius: 10px;
-  border: 2px solid #FDF6F6; /* Border around thumb */
+  margin: 10px;
 }
 
 .message {
-  padding: 12px;
-  margin-bottom: 12px;
-  background-color: #FDF6F6; /* Off-White */
-  border-radius: 12px;
-  max-width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+   /* Adjust the max width as needed */
 }
 
-footer {
-  display: flex;
-  padding: 10px;
-  background-color: #002C54; /* Dark Blue */
-  border-top: 1px solid #002C54; /* Dark Blue */
+.user-message {
+  background-color: #002C54;
+  color: white;
+  text-align: right;
+  margin-left: auto;
+  max-width: 50%;
 }
+
+.bot-message {
+  background-color: #77d6ff;
+  color: #333;
+  text-align: left;
+  margin-right: auto;
+  max-width: 50%;
+}
+
+/* Auto-scroll to the bottom */
+.conversation-area {
+  /* ... other properties ... */
+  scroll-behavior: smooth; /* For smoother scrolling */
+}
+
+
 
 input[type="text"] {
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #002C54; /* Dark Blue */
-  border-radius: 20px; /* Rounded input box */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
   margin-right: 10px;
-  font-family: 'Roboto', sans-serif;
-  background-color: #FDF6F6; /* Off-White */
-  transition: border 0.3s;
-}
-
-input[type="text"]:focus {
-  border-color: #B7B9A8; /* Red when focused */
-  box-shadow: 0 0 10px rgba(197, 0, 26, 0.5); /* Red shadow when focused */
 }
 
 button {
-  padding: 10px 24px;
-  font-size: 16px;
-  background-color: #B7B9A8; /* Red */
-  color: black;
+  padding: 12px 20px;
   border: none;
-  border-radius: 20px; /* Rounded button */
+  border-radius: 25px;
+  background-color: #77d6ff;
+  color: black;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-button:hover {
-  background-color: #B7B9A8; /* Darker Red for hover */
-}
-
-/* Material-UI Elevation */
-.conversation-area, .message {
-  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
-}
-
-/* User message styling (on the right side) */
-.user-message {
-  background-color: #B7B9A8; /* Red for user messages */
-  margin-left: auto;
-  text-align: right;
-  color: black;
-}
-
-/* Bot message styling (on the left side) */
-.bot-message {
-  background-color: #FDF6F6; /* Off-White for bot messages */
-  margin-right: auto;
-  text-align: left;
-  color: black;
-}
